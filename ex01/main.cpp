@@ -12,12 +12,18 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include "./Contact.hpp"
 #include "./Phonebook.hpp"
 
+static std::string toUppercase(std::string str)
+{
+	std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+	return str;
+}
+
 /* At program start-up, the phonebook is empty and the user is prompted to enter one
 of three commands. The program only accepts ADD, SEARCH and EXIT. */
-
 
 int main()
 {
@@ -27,19 +33,25 @@ int main()
 	std::cout << "\nWelcome to this *awesome* phonebook!\n"
 		<< "You can enter the following commands:\nADD, SEARCH and/or EXIT\n\n";
 
-	while (text != "EXIT")
+	while (true)
 	{
-		std::cin >> text;
+		std::getline(std::cin, text);
+		if (std::cin.eof())
+			break ;
+		
+		text = toUppercase(text);
+
 		if (text == "ADD")
 			pb.addNewContact();
 		else if (text == "SEARCH")
 			pb.searchForContact();
 		else if (text == "EXIT")
-			exit(EXIT_SUCCESS) ; 
+			break ;
 		else
-			std::cout << "Please try again with one of the following commands:\nADD, SEARCH or EXIT " 
-				<< std::endl;
+		{
+			std::cout << "Please try again with one of the following commands:\n";
+			std::cout << "ADD, SEARCH or EXIT\n" << std::endl;
+		}
 	}
-	
 	return (0);
 }

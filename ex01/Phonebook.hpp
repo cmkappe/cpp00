@@ -6,9 +6,7 @@ class Phonebook
 {
 	private:
 		Contact	_arr_contacts[8];
-		int		i;
-		int		contactCount;
-
+		int	contactCount;
 
 	public:
 		Phonebook();
@@ -18,5 +16,3 @@ class Phonebook
 		void	searchForContact();
 };
 
-/* Phonebook::Phonebook(){}
-Phonebook::~Phonebook(){} */

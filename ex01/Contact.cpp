@@ -17,27 +17,23 @@ Contact::Contact() {}
 Contact::~Contact(){}
 
 
+void	Contact::setFirstName( const std::string fn){ _firstName = fn; }
 
-	void	Contact::setFirstName(std::string fn){ _firstName = fn; }
-	
-	void	Contact::setLastName(std::string ln){ _lastName = ln; }
-	
-	void	Contact::setNickname(std::string nn){ _nickname = nn; }
+void	Contact::setLastName(const std::string ln){ _lastName = ln; }
 
-	void	Contact::setPhoneNum(std::string pn) { _phoneNum = pn; }
+void	Contact::setNickname(const std::string nn){ _nickname = nn; }	
 
-	void	Contact::setDarkestSecret(std::string ds) { _darkestSecret = ds; }
+void	Contact::setPhoneNum(const std::string pn) { _phoneNum = pn; }
 
+void	Contact::setDarkestSecret(const std::string ds) { _darkestSecret = ds; }
 
 
-	std::string	Contact::getFirstName(){ return (_firstName); }
-	
-	std::string	Contact::getLastName(){ return _lastName; }
-	
-	std::string	Contact::getNickname(){ return _nickname; }
+std::string	Contact::getFirstName() const { return (_firstName); }
 
-	std::string	Contact::getPhoneNum() { return _phoneNum; }
+std::string	Contact::getLastName() const { return _lastName; }
 
-	std::string	Contact::getDarkestSecret() { return _darkestSecret; }
+std::string	Contact::getNickname() const { return _nickname; }
 
-	
+std::string	Contact::getPhoneNum() const { return _phoneNum; }
+
+std::string	Contact::getDarkestSecret() const { return _darkestSecret; }	
